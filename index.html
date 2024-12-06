@@ -14,13 +14,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-M3HCRCDW');</script>
 <!-- End Google Tag Manager -->
 </head>
-
+<style>
+  .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .modal-content button {
+      margin: 5px;
+    }
+</style>
 <body>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3HCRCDW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <h1 id="level-title">Press A Key to Start</h1>
+  <button onclick="reloadPage()">Signup</button>
+  <button onclick="openModal()">Enroll</button>
+  <button onclick="openThankYouPage()">Thank You Page</button>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <p>Are you sure?</p>
+      <button onclick="confirmEnroll()">Yes</button>
+      <button onclick="closeModal()">No</button>
+    </div>
+  </div>
   <div class="container">
     <div lass="row">
 
@@ -46,7 +79,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </div>
 
+<script>
+    function reloadPage() {
+      location.reload();
+    }
 
+    function openModal() {
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function confirmEnroll() {
+      alert('You have enrolled successfully!');
+      closeModal();
+    }
+
+    function openThankYouPage() {
+      window.location.href = './thankyou.html';
+    }
+  </script>
   
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
